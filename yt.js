@@ -64,3 +64,84 @@ function factorial(n){
 }
 
 console.log(factorial(6));
+
+
+// HELPER METHOD RECURSION PATTERN
+// find all the odd values from a given array nums.
+
+function getOddValues(nums){
+  let arr = [];
+
+  function helper(input){
+    // write logic and define basecase
+    if(input.length === 0){
+      return;
+    }
+    if(input[0] % 2 !== 0){
+      arr.push(input[0]);
+    }
+    helper(input.slice(1));
+  }
+
+  helper(nums);
+  return arr;
+}
+
+console.log(getOddValues([1, 2, 3, 4, 5, 6]))
+
+//  LINEAR SEARCH
+
+function findTarget(arr, target){
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === target){
+      return i
+    }
+  }
+
+  return -1;
+}
+
+console.log(findTarget([11, 1, 6, 2, 9], 6))
+
+// BUBBLE SORT
+
+function bubbleSort(arr){
+  let n = arr.length;
+  for(let i = 0; i < n - 1; i++){
+    for(let j = 0; j < n - i - 1; j++){
+      if(arr[j] > arr[j + 1]){
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+      }
+    }
+  }
+
+  return arr;
+}
+
+console.log(bubbleSort([29, 10, 14, 37, 19]));
+
+
+// SELECTION SORT
+
+function selectionSort(arr){
+  let smallest;
+  let temp;
+  for(let i = 0; i < arr.length; i++){
+    smallest = i;
+    for(let j = i + 1; j < arr.length; j++){
+      if(arr[smallest] > arr[j]){
+        smallest = j;
+      }
+    }
+
+    if(i !== smallest){
+      temp = arr[smallest];
+      arr[smallest] = arr[i]
+      arr[i] = temp;
+    }
+  }
+
+  return arr;
+}
+
+console.log(selectionSort([30, 11, 28, 15, 45]))
