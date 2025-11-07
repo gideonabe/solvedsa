@@ -46,11 +46,10 @@ console.log(calculator(2, 2, "/"))
 //   function checkNoOfChars(str){
 //     const CharNo = {};
 //     for(let chr of str){
-//       CharNo[chr] = (CharNo[chr] || 0) + 1;
-//     }
+//       CharNo[chr] = (CharNo[chr] |) + 1;
+//     }| 0
 //     return CharNo;
 //   }
-
 //   const CharNoX = checkNoOfChars(string);
 
 //   return CharNoX[mainChar] || 0;
